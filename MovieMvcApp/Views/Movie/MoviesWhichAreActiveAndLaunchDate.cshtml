@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MovieLibrary.Movie>
+
+@{
+    ViewData["Title"] = "Movies Which are Active And Currently Running";
+}
+
+<h1>MoviesWhichAreActiveAndLaunchDate</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoxOffice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfLaunch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasTeaser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Favorite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoxOffice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfLaunch)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HasTeaser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Favorite)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

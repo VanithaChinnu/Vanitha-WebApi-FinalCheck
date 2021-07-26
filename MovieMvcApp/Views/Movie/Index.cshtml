@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MovieLibrary.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoxOffice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfLaunch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasTeaser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Favorite)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BoxOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfLaunch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasTeaser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Favorite)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { title = item.Title }) |
+                @Html.ActionLink("Details", "Details", new { title = item.Title }) |
+                @Html.ActionLink("Show My Fav List", "MyFavourties", new { title = item.Title }) |
+                @Html.ActionLink("Movies Which Are Active And LaunchDate", "MoviesWhichAreActiveAndLaunchDate", new { title = item.Title }) |
+                @Html.ActionLink("Delete", "Delete", new { title = item.Title })
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
